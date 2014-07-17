@@ -1,1 +1,3 @@
 bjam.exe stage --toolset=msvc-12.0 --without-graph --without-graph_parallel --without-math --without-mpi --without-serialization --without-wave --without-test --without-program_options --without-serialization --without-signals --prefix=%s link=static runtime-link=shared threading=multi debug release address-model=64 install
+
+bjam.exe bjam.exe stage --toolset=msvc-12.0  link=static  threading=multi debug release address-model=64 install
