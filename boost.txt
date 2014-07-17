@@ -1,4 +1,4 @@
 
 bjam.exe stage --toolset=msvc-12.0  --prefix=%s link=static  runtime-link=static|shared threading=multi debug release address-model=64 install
-scons  --extrapath=c:/boost install-mongoclient --64 --dbg=on --dynamic-windows=DYNAMIC-WINDOWS
-scons  --extrapath=c:/boost install-mongoclient --64 --dynamic-windows=DYNAMIC-WINDOWS
+scons  --extrapath=c:/boost install-mongoclient --64 --dbg=on --dynamic-windows=DYNAMIC-WINDOWS --c++11=on
+scons  --extrapath=c:/boost install-mongoclient --64 --dynamic-windows=DYNAMIC-WINDOWS --c++11=on
