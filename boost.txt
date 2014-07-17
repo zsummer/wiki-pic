@@ -1,0 +1,12 @@
+bjam  --toolset=msvc-12.0
+variant=debug variant=release
+link=static runtime-link=static
+threading=multi threading=single
+--with-random --with-thread --with-date_time --with-regex --with-serialization --with-filesystem --with-system
+stage
+
+
+bjam  --toolset=msvc-12.0
+link=static 
+threading=multi 
+install
