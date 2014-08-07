@@ -7,3 +7,4 @@ scons  --full --extrapath=c:/boost --use-system-boost  --64 --dynamic-windows=DY
 STATIC_LIBMONGOCLIENT  _CRT_SECURE_NO_DEPRECATE
 
 ./b2 --prefix=/boost link=static threading=multi address-model=64 install --without-mpi --without-wave --without-signals --without-serialization
+scons  --full --extrapath=/boost --use-system-boost  --64   --dbg=on --prefix=/boost install-mongoclient
