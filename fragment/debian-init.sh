@@ -99,39 +99,39 @@ fi
 
 founder=`grep "^root[ ]*soft[ ]*nofile" /etc/security/limits.conf |xargs`
 if [ "$founder" = "" ]; then
-	echo "root soft nofile unlimited" >> /etc/security/limits.conf
-	echo "appended to /etc/security/limits.conf root soft nofile unlimited"
+	echo "root soft nofile 50000" >> /etc/security/limits.conf
+	echo "appended to /etc/security/limits.conf root soft nofile 50000"
 	count=$(($count+1))
 fi
 
 founder=`grep "^root[ ]*hard[ ]*nofile" /etc/security/limits.conf |xargs`
 if [ "$founder" = "" ]; then
-	echo "root hard nofile unlimited" >> /etc/security/limits.conf
-	echo "appended to /etc/security/limits.conf root hard nofile unlimited"
+	echo "root hard nofile 50000" >> /etc/security/limits.conf
+	echo "appended to /etc/security/limits.conf root hard nofile 50000"
 	count=$(($count+1))
 fi
 
 founder=`grep "^\*[ ]*soft[ ]*nofile" /etc/security/limits.conf |xargs`
 if [ "$founder" = "" ]; then
-	echo "* soft nofile unlimited" >> /etc/security/limits.conf
-	echo "appended to /etc/security/limits.conf * soft nofile unlimited"
+	echo "* soft nofile 50000" >> /etc/security/limits.conf
+	echo "appended to /etc/security/limits.conf * soft nofile 50000"
 	count=$(($count+1))
 fi
 
 founder=`grep "^\*[ ]*hard[ ]*nofile" /etc/security/limits.conf |xargs`
 if [ "$founder" = "" ]; then
-	echo "* hard nofile unlimited" >> /etc/security/limits.conf
-	echo "appended to /etc/security/limits.conf * hard nofile unlimited"
+	echo "* hard nofile 50000" >> /etc/security/limits.conf
+	echo "appended to /etc/security/limits.conf * hard nofile 50000"
 	count=$(($count+1))
 fi
 
 
 if [ $count -gt 0 ]; then
 	echo "#apend by zyw @$curDate" >> /etc/security/limits.conf
-	echo "ulimit core: " `ulimit -c`
-	echo "ulimit nofile: " `ulimit -n`
-	echo "/proc/sys/fs/file-max:" `cat /proc/sys/fs/file-max`
 fi
+echo "ulimit core: " `ulimit -c`
+echo "ulimit nofile: " `ulimit -n`
+echo "/proc/sys/fs/file-max:" `cat /proc/sys/fs/file-max`
 
 echo "#### /etc/security/limits.conf ended"
 ####################################################################
