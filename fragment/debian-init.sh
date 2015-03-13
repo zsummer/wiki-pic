@@ -138,8 +138,53 @@ echo "#### /etc/security/limits.conf ended"
 
 
 ####################################################################
-echo "#### /etc/security/limits.conf"
+echo "#### /etc/bash.bashrc"
 count=0
-#apt-get install samba
+founder=`grep "^TERM=xterm-color" /etc/bash.bashrc |xargs`
+if [ "$founder" = "" ]; then
+	echo "TERM=xterm-color; export TERM" >> /etc/bash.bashrc
+	echo "appended to /etc/bash.bashrc TERM=xterm-color; export TERM"
+	count=$(($count+1))
+fi
+
+founder=`grep "^alias ls=" /etc/bash.bashrc |xargs`
+if [ "$founder" = "" ]; then
+	echo "alias ls='ls --color'" >> /etc/bash.bashrc
+	echo "appended to /etc/bash.bashrc alias ls='ls --color'"
+	count=$(($count+1))
+fi
+
+founder=`grep "^alias ll=" /etc/bash.bashrc |xargs`
+if [ "$founder" = "" ]; then
+	echo "alias ll='ls -l --color'" >> /etc/bash.bashrc
+	echo "appended to /etc/bash.bashrc alias ll='ls -l --color'"
+	count=$(($count+1))
+fi
+
+if [ $count -gt 0 ]; then
+	echo "#apend by zyw @$curDate" >> /etc/bash.bashrc
+fi
+
+echo "#### /etc/bash.bashrc ended"
+####################################################################
 
  
+####################################################################
+echo "#### /etc/vim/vimrc"
+count=0
+if [ -f /etc/vim/vimrc ]; then
+	founder=`grep "^\"[ ]*syntax[ ]*on" /etc/vim/vimrc |line`
+	if [ "$founder" != "" ]; then
+		sed -i 's/\"[ ]*syntax[ ]*on.*$/syntax on/' /etc/vim/vimrc
+		echo "replace \" syntax on/ syntax on"
+		count=$(($count+1))
+	fi
+fi
+
+
+if [ $count -gt 0 ]; then
+	echo "\"apend by zyw @$curDate" >> /etc/vim/vimrc
+fi
+
+echo "#### /etc/vim/vimrc ended"
+####################################################################
