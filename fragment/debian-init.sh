@@ -1,6 +1,8 @@
 #!/bin/bash
+#!copyright @ zhangyawei 2015-03-12
 curDate=`date +"%Y-%m-%d %H:%M:%S"`
-echo $curDate
+echo "zhangyawei by $curDate"
+
 ####################################################################
 echo "#### /etc/sysctl.conf"
 count=0
@@ -183,7 +185,7 @@ fi
 
 
 if [ $count -gt 0 ]; then
-	echo "\"apend by zyw @$curDate" >> /etc/vim/vimrc
+	echo "\"replace by zyw @$curDate" >> /etc/vim/vimrc
 fi
 
 echo "#### /etc/vim/vimrc ended"
