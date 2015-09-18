@@ -62,6 +62,7 @@ if [ $count -gt 0 ]; then
 	sysctl -p
 fi
 
+echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all
 echo "#### /etc/sysctl.conf ended"
 ####################################################################
 
